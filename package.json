@@ -18,6 +18,16 @@
   },
   "homepage": "https://github.com/JulianaPelozo/chama-sos-backend#readme",
   "dependencies": {
+    "@types/bcrypt": "^6.0.0",
+    "@types/express": "^5.0.4",
+    "@types/jsonwebtoken": "^9.0.10",
+    "@types/node": "^24.9.1",
+    "bcrypt": "^6.0.0",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "ts-node": "^10.9.2",
+    "tsconfig-paths": "^4.2.0",
     "typescript": "^5.9.3"
   },
   "devDependencies": {

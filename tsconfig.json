@@ -3,8 +3,10 @@
   // Visit https://aka.ms/tsconfig to read more about this file
   "compilerOptions": {
     // File Layout
-    // "rootDir": "./src",
+   "rootDir": "./src",
    "outDir": "./dist",
+   "moduleResolution": "node",
+   "baseUrl": "./src",
 
     // Environment Settings
     // See also https://aka.ms/tsconfig/module
@@ -15,6 +17,7 @@
     // "lib": ["esnext"],
     // "types": ["node"],
     // and npm install -D @types/node
+    "esModuleInterop": true,
 
     // Other Outputs
     "sourceMap": true,
