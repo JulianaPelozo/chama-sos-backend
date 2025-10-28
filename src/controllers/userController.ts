@@ -1,33 +1,14 @@
-import mongoose, 
-{
-    Document,
-    Schema
-} from "mongoose";
+import { Request, Response } from "express";
+import User from "../models/User";
 
-export interface IUser extends Document {
-    name: string
-    
+export const getUsers = async (req: Request, res: Response) => {
+  const users = await User.find().select("-password");
+  res.json(users);
+};
 
-    getName(): string   
-    setName(n: string): void
-}
-
-class UserClass {
-    name!: string
-
-    constructor(name?: string) {
-        if(name) this.name = name
-    }
-
-    getName(){return this.name}
-    setName(n: string) {this.name = n}
-}
-
-const userSchema = new Schema<IUser>({
-    name: {type: String, required: true}
-}, {timestamps: true})
-
-userSchema.loadClass(UserClass)
-
-const User = mongoose.model<IUser>('User', userSchema)
-export default User
+export const getUserById = async (req: Request, res: Response) => {
+  const { id } = req.params;
+  const user = await User.findById(id).select("-password");
+  if (!user) return res.status(404).json({ message: "Usuário não encontrado" });
+  res.json(user);
+};
